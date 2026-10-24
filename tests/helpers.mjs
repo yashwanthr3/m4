@@ -4,6 +4,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { activate } from '../scripts/venv.mjs';
+
+/** The repo's .venv python (or python3 on PATH); also puts .venv first on PATH for child processes. */
+export const PYTHON = activate();
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const sleep = ms => new Promise(r => setTimeout(r, ms));

@@ -7,7 +7,7 @@ Kit v2) and the trust-pattern-builder library. The product spec is PRD.md.
 ## Run, test, extend
 
 ```
-npm install                      # node 22+; python3 with playwright 1.63 and pillow; pandoc, pdftotext
+npm run setup                    # once: npm install + .venv (requirements.txt) + Chromium; node 22+, python 3.9+
 npm start                        # builds the UI, serves the studio on http://127.0.0.1:4317
 HOST=0.0.0.0 npm start           # also reachable from a phone on the LAN (QR codes appear at the gates)
 npm run dev                      # orchestrator with --watch + Vite on :5173 (proxies /api, /ws, /fonts)
@@ -36,6 +36,13 @@ vendor/patterns/         catalogue.json, pages/<n>.html, themes.mjs (derive). Cu
 runs/<course-id>/        one course folder per run (gitignored), itself a git repo
 tests/                   parity, units, pipeline (gates, pattern slot, crash + resume, publish), pattern_block.py
 ```
+
+## Python
+
+All Python (the eval worker, the kit's scripts, agents' Bash commands) runs from `.venv`.
+`scripts/venv.mjs` `activate()` puts `.venv/bin` first on PATH and is called by the orchestrator's
+config and by tests/helpers.mjs, so nested `python3` calls resolve to the venv without activating it.
+Add Python dependencies to requirements.txt, never with a system-wide pip.
 
 ## Rules for working on this repo
 

@@ -1,6 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { activate, hasVenv } from '../../../scripts/venv.mjs';
+
+/** Python for the eval worker and every kit script: the repo's .venv when it exists (see scripts/venv.mjs). */
+export const PYTHON = activate();
+export const VENV_ACTIVE = hasVenv();
 
 export const STUDIO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 export const KIT = path.join(STUDIO, 'vendor/kit');

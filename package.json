@@ -1,8 +1,12 @@
 {
   "name": "trust-course-studio",
   "private": true,
-  "workspaces": ["apps/ui", "apps/orchestrator"],
+  "workspaces": [
+    "apps/ui",
+    "apps/orchestrator"
+  ],
   "scripts": {
+    "setup": "node scripts/setup.mjs",
     "dev": "npm run dev -w apps/orchestrator & npm run dev -w apps/ui",
     "build": "npm run build -w apps/ui",
     "start": "npm run build && node apps/orchestrator/src/server.js",

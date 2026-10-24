@@ -4,9 +4,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
-import { ROOT } from './helpers.mjs';
+import { ROOT, PYTHON } from './helpers.mjs';
 
-const worker = (...a) => JSON.parse(execFileSync('python3', [path.join(ROOT, 'workers/evals/evals.py'), 'run', ...a, '--json'], { encoding: 'utf8', maxBuffer: 32 << 20 }).trim().split('\n').pop());
+const worker = (...a) => JSON.parse(execFileSync(PYTHON, [path.join(ROOT, 'workers/evals/evals.py'), 'run', ...a, '--json'], { encoding: 'utf8', maxBuffer: 32 << 20 }).trim().split('\n').pop());
 
 test('vendored files match the lock and the patch applies', () => {
   const out = execFileSync('node', [path.join(ROOT, 'scripts/vendor.mjs'), 'check'], { encoding: 'utf8' });

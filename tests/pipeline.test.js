@@ -9,7 +9,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { ROOT, scratch, studio, stage, sleep } from './helpers.mjs';
+import { ROOT, PYTHON, scratch, studio, stage, sleep } from './helpers.mjs';
 
 test('pilot: gates in order, pattern slot, resume after a crash, publish', { timeout: 1800000 }, async t => {
   const runs = scratch('pipeline');
@@ -74,7 +74,7 @@ test('pilot: gates in order, pattern slot, resume after a crash, publish', { tim
   assert.equal(s.patternContract.patterns[String(n)].passed, 4);
   assert.deepEqual(s.publish.blocks, []);
   assert.ok(s.lx.rounds.length >= 1 && s.lx.rounds.length <= 3);
-  const pb = JSON.parse(execFileSync('python3', [path.join(ROOT, 'tests/pattern_block.py'), path.join(runs, id), 'ch15'], { encoding: 'utf8' }).trim());
+  const pb = JSON.parse(execFileSync(PYTHON, [path.join(ROOT, 'tests/pattern_block.py'), path.join(runs, id), 'ch15'], { encoding: 'utf8' }).trim());
   assert.equal(pb.ok, true, JSON.stringify(pb));
 
   await s2.post(`/runs/${id}/gate/publish`, { decision: 'approve', by: 'test' });

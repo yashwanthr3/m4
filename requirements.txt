@@ -1,0 +1,6 @@
+# Python dependencies for the eval worker and the kit's eval scripts.
+# Installed into .venv by `npm run setup`.
+playwright>=1.48
+pillow>=10
+python-pptx>=0.6.23
+pypdf>=4

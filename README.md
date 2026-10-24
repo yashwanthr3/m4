@@ -17,12 +17,16 @@ Library patterns can stand in for kit blocks on imagined steps only, previewed i
 
 ## Quick start
 
+Needs Node 22+ and Python 3.9+. Optional: pandoc and pdftotext to read Word and PDF sources.
+
 ```
-npm install
-pip install --break-system-packages playwright==1.63.0 pillow python-pptx pypdf   # Chromium must match
+npm run setup                       # once: npm packages + Python venv in .venv + Chromium
 export ANTHROPIC_API_KEY=...        # omit to explore with mock agents (fixture lessons, real checks)
 npm start                           # http://127.0.0.1:4317
 ```
+
+All Python runs from `.venv` (created by `npm run setup` from requirements.txt); there is no need
+to activate it: the studio puts `.venv` first on PATH for everything it starts.
 
 Choose **New course**, drop in your files (or use the bundled CISSP sample), and follow the chain.
 

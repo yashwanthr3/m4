@@ -7,7 +7,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { WebSocketServer } from 'ws';
-import { settings, UI_DIST, KIT, FIXTURES, STUDIO } from './config.js';
+import { settings, UI_DIST, KIT, FIXTURES, STUDIO, PYTHON, VENV_ACTIVE } from './config.js';
 import { Run, bus } from './run.js';
 import { pipelineFor, recover } from './pipeline.js';
 import { snapshot, summary } from './state.js';
@@ -121,7 +121,7 @@ async function route(req, res) {
   if (b === 'preview' && M === 'GET') {
     try {
       const out = path.join(run.dir, 'dist', 'preview.html');
-      execFileSync('python3', ['-c', `import build; build.build(out=${JSON.stringify(out)})`], { cwd: run.dir });
+      execFileSync(PYTHON, ['-c', `import build; build.build(out=${JSON.stringify(out)})`], { cwd: run.dir });
       return sendFile(res, out, { 'content-security-policy': "sandbox allow-scripts allow-same-origin allow-modals; default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src data:; frame-src 'self' about: data:" });
     } catch (e) { return send(res, 500, `<p style="font:16px system-ui;padding:2em">Preview build failed: ${String(e.message).slice(0, 400)}</p>`, 'text/html'); }
   }
@@ -178,6 +178,7 @@ export function start({ port = settings.port, host = settings.host } = {}) {
   return new Promise(resolve => server.listen(port, host, () => {
     const where = host === '0.0.0.0' ? lanUrls(port).concat(`http://localhost:${port}`) : [`http://${host}:${port}`];
     console.log(`Trust Course Studio on ${where.join('  ')}  ·  agents: ${settings.agents}${settings.agents === 'mock' ? ' (no API key found; fixture agents)' : ''}`);
+    console.log(VENV_ACTIVE ? `Python: ${PYTHON}` : 'Python: no .venv found, using python3 on PATH. Run `npm run setup` to create it.');
     resolve(server);
   }));
 }
