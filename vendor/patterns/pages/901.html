@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>901 · Hold before you send</title>
+<style>:root{--bg:#f6f6f1;--surface:#efefe9;--surface-2:#e9ebe5;--ink:#16181b;--ink-2:#43484e;--muted:#575d63;--line:#c9ccc3;
+--accent:#2450b8;--on-accent:#f6f6f1;--accent-soft:#dfe2da;--good:#1d7448;--good-soft:#d7ecdf;--bad:#b3261b;--bad-soft:#f5dcd8;--warn:#765000;--warn-soft:#f6e9c4;
+--font-body:system-ui,sans-serif;--font-display:Georgia,serif;--font-sign:"Arial Narrow",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.5}
+.pattern{padding:18px 18px 20px;max-width:720px;margin:0 auto}
+.sit{font-family:var(--font-display);font-size:19px;margin:0 0 14px;color:var(--ink)}
+.say{margin:0 0 10px;color:var(--ink-2)}
+.stage{position:relative;min-width:0}
+button{font:inherit;cursor:pointer}
+.act{border:0;border-radius:999px;background:var(--accent);color:var(--on-accent);padding:12px 22px;font-weight:600;min-height:44px}
+.act:disabled{opacity:.5;cursor:default}
+.ghost{border:1.5px solid var(--line);border-radius:999px;background:transparent;color:var(--ink-2);padding:10px 18px;min-height:44px}
+.opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);padding:12px 14px;margin:0 0 8px;min-height:48px}
+.opt:hover,.opt:focus-visible{border-color:var(--accent);outline:none}
+.opt.pick{border-color:var(--accent);background:var(--accent-soft)}
+.cons{margin-top:14px;padding:12px 14px;border-radius:12px;border-left:4px solid var(--line);background:var(--surface)}
+.cons.good{border-color:var(--good);background:var(--good-soft)}
+.cons.bad{border-color:var(--bad);background:var(--bad-soft)}
+.cons.warn{border-color:var(--warn);background:var(--warn-soft)}
+.why{color:var(--ink-2);margin:10px 0 0}
+.remember{margin-top:14px;border:1.5px dashed var(--accent);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;background:var(--bg)}
+.remember b{display:block;font-family:var(--font-sign);letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+.remember .ic{font-size:26px;line-height:1}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* 901 — Hold before you send */
+.note901{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface);margin-bottom:12px}
+.note901.pulse{animation:p901 1s infinite}@keyframes p901{50%{border-color:var(--warn)}}
+.hold901{position:relative;overflow:hidden;width:100%;max-width:340px}
+.hold901 i{position:absolute;inset:0;width:0;background:color-mix(in srgb,var(--on-accent) 30%,transparent);pointer-events:none}
+.flag901{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.flag901 span{border-radius:999px;padding:4px 10px;background:var(--warn-soft);color:var(--warn);font-size:14px}</style></head>
+<body>
+<section class="pattern" id="p901" data-n="901" data-theme="mirror" data-gesture="hold" data-mechanic="press and hold send for three seconds while the urgent note pulses" data-nearest="" data-differs="">
+<p class="sit">A note from "the director" asks you to send a payment in the next five minutes.</p>
+<div class="stage"><div class="note901 pulse" id="n901"><b>From: director@brightway-pay.example</b><br>Send 9,400 to the new supplier account now. I am in a meeting. Do not call.</div>
+<p class="say">Hold the button to send. Let go early to stop and look again.</p>
+<button class="act hold901" id="h901" aria-describedby="n901"><i></i><span>Hold to send</span></button>
+<div class="flag901" id="f901" hidden><span>Sender domain is new</span><span>"Do not call"</span><span>New account</span></div></div>
+<div class="cons" id="c901" hidden role="status"></div>
+<p class="why" id="w901" hidden>Pressure is a tool. A short pause gives you time to notice what is wrong.</p>
+<div class="remember" hidden><span class="ic" aria-hidden="true">⏳</span><div><b>Remember</b>An urgent request is the moment to slow down, not speed up.</div></div>
+<div class="row"><button class="ghost replay" hidden>Try again</button></div>
+</section>
+<script>
+const $=(s,r=document)=>r.querySelector(s);const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches||window.__FAST;
+const wait=ms=>new Promise(r=>setTimeout(r,reduce?0:ms));
+function show(id,html,tone){const e=$(id);e.innerHTML=html;e.hidden=false;if(tone){e.className='cons '+tone;}}
+function remember(){ $('.remember').hidden=false; $('.replay').hidden=false; window.trustGate&&window.trustGate('remember'); }
+function reset(){ $$('.cons,.why,.remember,.replay').forEach(e=>e.hidden=true); }
+/* 901 — Hold before you send */ (() => { const b=$('#h901'),bar=$('i',b),f=$('#f901');let t0=0,raf=0,sent=false,looked=false;
+function tick(){const p=Math.min(1,(performance.now()-t0)/(reduce?300:3000));bar.style.width=(p*100)+'%';if(p>=1){done(true);return;}raf=requestAnimationFrame(tick);}
+function start(e){if(sent)return;e.preventDefault();t0=performance.now();raf=requestAnimationFrame(tick);}
+function stop(){if(sent)return;cancelAnimationFrame(raf);const p=parseFloat(bar.style.width)||0;bar.style.width='0';if(p>5){looked=true;f.hidden=false;done(false);}}
+function done(s){sent=true;cancelAnimationFrame(raf);$('#n901').classList.remove('pulse');
+ if(s) show('#c901','<b>Sent.</b> The money left. Three warning signs were on the note: a new domain, "do not call", a new account.','bad');
+ else show('#c901','<b>You stopped.</b> In the pause you can see three warning signs. Next step: call the director on the number you already have.','good');
+ f.hidden=false;$('#w901').hidden=false;remember();}
+b.addEventListener('pointerdown',start);b.addEventListener('pointerup',stop);b.addEventListener('pointerleave',stop);
+b.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat)start(e);});b.addEventListener('keyup',e=>{if(e.key===' '||e.key==='Enter')stop();});
+$('.replay').onclick=()=>{sent=false;looked=false;bar.style.width='0';f.hidden=true;$('#n901').classList.add('pulse');reset();};
+window.__autoplay=async(path)=>{ if(path==='right'){t0=performance.now();bar.style.width='40%';stop();} else {done(true);} }; })();
+</script>
+<script id="trust-adapter">
+/* Theme adapter: do not edit. Receives {type:'trust-theme',vars,theme,only}; reports height and the gate. */
+(function(){
+  var N = Number(document.querySelector('.pattern').dataset.n);
+  window.addEventListener('message', function(ev){
+    var d = ev.data || {};
+    if (d.type !== 'trust-theme') return;
+    var r = document.documentElement;
+    Object.keys(d.vars || {}).forEach(function(k){ if (d.vars[k]) r.style.setProperty(k, d.vars[k]); });
+    r.dataset.scheme = d.theme || 'light';
+    height();
+  });
+  function height(){ try { parent.postMessage({type:'trust-height', h: document.documentElement.scrollHeight, n: N}, '*'); } catch(e){} }
+  if (window.ResizeObserver) new ResizeObserver(height).observe(document.body);
+  window.addEventListener('load', height);
+  window.trustGate = function(event){ try { parent.postMessage({type:'trust-pattern', event: event || 'remember', n: N}, '*'); } catch(e){} };
+})();
+</script>
+</body></html>

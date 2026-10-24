@@ -1,0 +1,121 @@
+{
+ "id": "wcss",
+ "title": "Who Could Have Said Stop?",
+ "heroHTML": "Who could have said <em>stop?</em>",
+ "mast": "Who could have said stop?",
+ "ring": "WHO COULD HAVE SAID STOP?",
+ "sub": "Real AI failures, replayed so you make the calls. Every case ends at the same question: where was the stop button, and who was standing next to it?",
+ "footer": "Built from the manuscript <i>Who Could Have Said Stop?</i> (October 2026). Every real fact has a source in its lesson.",
+ "questions": [
+  "Who answers for it?",
+  "What is it allowed to do, how much and how fast?",
+  "Who checks its work, apart from the people who built it?",
+  "What record will show what happened?",
+  "If it gets something wrong about you, how do you get it fixed?",
+  "When does someone look at it again?",
+  "What is it really rewarded for?",
+  "Is the safe way also the easy way?"
+ ],
+ "parts": {
+  "0": {
+   "name": "Start here",
+   "job": "",
+   "desc": "Why AI failures keep happening, and the eight questions that catch them.",
+   "special": true,
+   "mark": "•"
+  },
+  "1": {
+   "name": "When AI talks for you",
+   "job": "Talks",
+   "desc": "Chatbots and AI answers that speak in a company’s name, or in yours."
+  },
+  "2": {
+   "name": "When AI judges people",
+   "job": "Judges",
+   "desc": "Software that decides who gets hired, graded, treated, matched or paid."
+  },
+  "3": {
+   "name": "When AI acts",
+   "job": "Acts",
+   "desc": "Agents that buy, delete and obey, using permissions someone gave them."
+  },
+  "4": {
+   "name": "When the ground shifts",
+   "job": "Ground shifts",
+   "desc": "Updates, changing terms, leaked chats and faked faces."
+  },
+  "5": {
+   "name": "Taking it back",
+   "job": "Takes it back",
+   "desc": "The eight questions at work, as a customer and as a citizen."
+  },
+  "6": {
+   "name": "Closing",
+   "job": "",
+   "desc": "The version where someone said stop.",
+   "special": true,
+   "mark": "■"
+  }
+ },
+ "t": {
+  "lessonsEyebrow": "An interactive course in {n} lessons",
+  "points": "insight",
+  "pressBegin": "Press to begin",
+  "pressContinue": "Press to continue",
+  "frameworkTitle": "The eight questions",
+  "frameworkHint": "Each lesson trains one or more. Tap a card to see where.",
+  "ladderTitle": "Each part hands AI a bigger job",
+  "ladderPrefix": "AI ",
+  "ladderNote": "The last step hands the stop button back to you",
+  "pathTitle": "The casebook",
+  "chapter": "Chapter",
+  "checkpoint": "Part {p} checkpoint",
+  "intro": "Introduction",
+  "closing": "Closing",
+  "coverCap": "{N} hands on this case. {K} could have said stop.",
+  "coverOne": "One of them",
+  "coverMany": "{K} of them",
+  "finishOne": "The stop button belonged at link {links}.",
+  "finishMany": "Links {links} were each a place someone could have said stop.",
+  "finishAfterOne": " After that, the rest need not have happened.",
+  "finishAfterMany": " After the last of them, the rest need not have happened.",
+  "finishNoAfter": "The stop button belonged at {linkword} {links}.",
+  "afterNote": "From here on, none of this needed to happen.",
+  "stopPrompt": "Who could have said stop?",
+  "stopHint": "Tap the link in the chain where the stop button belonged.",
+  "stopHintMany": " There are {n} to find.",
+  "stopAria": "Place the stop button at: ",
+  "toolkitPrompt": "Which of the eight questions does this case turn on?",
+  "recapNone": "{N} cases, {n} stop buttons. This checkpoint brings them together.",
+  "recapSome": "You have found the stop button in {k} of these {n} cases.",
+  "recapAll": "You found the stop button in all {n} cases of this part. Now use it on your own.",
+  "recapFinish": "{N} cases, {n} stop buttons, all in your hands now. ",
+  "recapNext": "The next part hands AI a bigger job.",
+  "recapLast": "The closing shows the version where someone used one.",
+  "stampFound": "STOP FOUND",
+  "stampCheckpoint": "STOPS HELD",
+  "stampClosing": "STOPPED IN TIME",
+  "stampPlain": "CLOSED",
+  "closed": "Case closed",
+  "checkpointDone": "Checkpoint complete",
+  "takeaway": "Take this with you",
+  "trained": "Questions trained",
+  "wrote": "What you wrote",
+  "lastSit": "One last thing to sit with",
+  "elsewhere": "Elsewhere · the same gap, other places",
+  "sources": "Sources",
+  "sit": "Sit with this",
+  "reflect": "Write before you read on",
+  "firstTry": "first-try calls",
+  "streakDay": "day in a row",
+  "streakDays": "days in a row",
+  "reset": "Reset my progress",
+  "resetConfirm": "Tap again to erase all progress",
+  "nextCase": "Next case",
+  "nextCheckpoint": "Next: checkpoint",
+  "nextClosing": "Next: the closing",
+  "backToCourse": "Back to the course",
+  "closeCase": "Close the case"
+ },
+ "theme": {}
+}

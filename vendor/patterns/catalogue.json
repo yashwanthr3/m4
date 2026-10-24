@@ -1,0 +1,120 @@
+{
+ "version": "sample-1",
+ "note": "SAMPLE catalogue (6 patterns, numbers 901-906). Replace with the real 135-pattern catalogue: see vendor/patterns/README.md.",
+ "patterns": [
+  {
+   "n": 901,
+   "slug": "HOLD",
+   "name": "Hold before you send",
+   "mechanic": "press and hold send for three seconds while the urgent note pulses",
+   "learns": "An urgent request is the moment to slow down, not speed up.",
+   "theme": "mirror",
+   "audience": "everyone",
+   "course": "mixed",
+   "topics": [
+    "urgency",
+    "payments",
+    "social engineering",
+    "pause"
+   ],
+   "gesture": "hold",
+   "novelty": "gesture",
+   "page": "pages/901.html"
+  },
+  {
+   "n": 902,
+   "slug": "CALLBACK",
+   "name": "Call back on a number you trust",
+   "mechanic": "choose which phone number to dial from the email, the signature or your own directory",
+   "learns": "Check a request through a channel you already had, never one the request gives you.",
+   "theme": "briefing",
+   "audience": "everyone",
+   "course": "cyber",
+   "topics": [
+    "verification",
+    "vishing",
+    "payments",
+    "out-of-band"
+   ],
+   "gesture": "tap-choose",
+   "novelty": null,
+   "page": "pages/902.html"
+  },
+  {
+   "n": 903,
+   "slug": "REVOKE",
+   "name": "Revoke on the last day",
+   "mechanic": "tap leaver badges as they drift towards the door before they cross it",
+   "learns": "Remove access on the day a person leaves, every time.",
+   "theme": "yard",
+   "audience": "everyone",
+   "course": "cyber",
+   "topics": [
+    "access",
+    "leavers",
+    "offboarding",
+    "revocation"
+   ],
+   "gesture": "watch-and-intervene",
+   "novelty": null,
+   "page": "pages/903.html"
+  },
+  {
+   "n": 904,
+   "slug": "DIAL",
+   "name": "How sure are you?",
+   "mechanic": "set a confidence dial for each assistant answer, then see which were true",
+   "learns": "A fluent answer is not a checked answer. Match your trust to the evidence.",
+   "theme": "mirror",
+   "audience": "everyone",
+   "course": "ai",
+   "topics": [
+    "ai output",
+    "calibration",
+    "overconfidence",
+    "verification"
+   ],
+   "gesture": "slider",
+   "novelty": null,
+   "page": "pages/904.html"
+  },
+  {
+   "n": 905,
+   "slug": "MATCH",
+   "name": "Does the change match the ticket?",
+   "mechanic": "tap the line in the deployed change that the approved ticket never mentioned",
+   "learns": "Compare what was deployed with what was approved, line by line.",
+   "theme": "casebook",
+   "audience": "everyone",
+   "course": "tech",
+   "topics": [
+    "change control",
+    "approval",
+    "scope",
+    "deployment"
+   ],
+   "gesture": "tap-choose",
+   "novelty": null,
+   "page": "pages/905.html"
+  },
+  {
+   "n": 906,
+   "slug": "RIPPLE",
+   "name": "How far does it spread?",
+   "mechanic": "drag the sharing scope and watch ripples reach more rings of people",
+   "learns": "Share personal data with the smallest group that needs it.",
+   "theme": "control",
+   "audience": "everyone",
+   "course": "privacy",
+   "topics": [
+    "sharing",
+    "data minimisation",
+    "audience",
+    "oversharing"
+   ],
+   "gesture": "slider",
+   "novelty": "medium-as-mechanic",
+   "page": "pages/906.html"
+  }
+ ]
+}

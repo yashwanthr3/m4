@@ -1,0 +1,163 @@
+{
+ "config": {
+  "id": "wodc",
+  "title": "Who Owed Due Care?",
+  "heroHTML": "Who owed <em>due care?</em>",
+  "mast": "Who owed due care?",
+  "ring": "WHO OWED DUE CARE HERE?",
+  "sub": "Seventeen real security failures across the eight CISSP domains, replayed so you make the calls. Every case ends at the same question: where should the control have been, and who was placed to apply it?",
+  "footer": "Example extract from the CISSP casebook built with the Trust Course Kit. Every real fact has a source in its lesson.",
+  "questions": [
+   "Who owns this, and who answers for it?",
+   "Did we do the research before we took it on?",
+   "Does anyone hold more access than the job needs?",
+   "Can one person do this alone?",
+   "Is it locked by default, and does it fail closed?",
+   "If this layer fails, what stands behind it?",
+   "Even when we trust it, who verifies?",
+   "Whose control is this: ours or the provider's?"
+  ],
+  "parts": {
+   "0": {
+    "name": "Start here",
+    "job": "",
+    "desc": "Why competent people miss controls, and the eight questions that find them.",
+    "special": true,
+    "mark": "•"
+   },
+   "1": {
+    "name": "Security and risk management",
+    "job": "Decides",
+    "desc": "Ethics, acquisitions and business continuity: decisions made by leaders, far from the technology."
+   },
+   "2": {
+    "name": "Asset security",
+    "job": "Holds",
+    "desc": "What you keep, how you label it and how you get rid of it."
+   },
+   "3": {
+    "name": "Security architecture and engineering",
+    "job": "Builds",
+    "desc": "Defaults, keys and the cloud line, decided before anything runs."
+   },
+   "4": {
+    "name": "Communication and network security",
+    "job": "Connects",
+    "desc": "Wireless networks, network segments and who may connect to what."
+   },
+   "5": {
+    "name": "Identity and access management",
+    "job": "Admits",
+    "desc": "Accounts that outlive their purpose, and callers who sound like IT."
+   },
+   "6": {
+    "name": "Security assessment and testing",
+    "job": "Tests",
+    "desc": "When the test passes and the system still fails."
+   },
+   "7": {
+    "name": "Security operations",
+    "job": "Runs",
+    "desc": "Patches, changes and alerts on an ordinary working day."
+   },
+   "8": {
+    "name": "Software development security",
+    "job": "Ships",
+    "desc": "Code you build and code you inherit."
+   },
+   "9": {
+    "name": "Closing",
+    "job": "",
+    "desc": "The version where someone checked.",
+    "special": true,
+    "mark": "■"
+   }
+  },
+  "t": {
+   "lessonsEyebrow": "A CISSP casebook in {n} lessons",
+   "points": "insight",
+   "pressBegin": "Press to open the casebook",
+   "pressContinue": "Press to continue",
+   "frameworkTitle": "Eight questions from the principles",
+   "frameworkHint": "Drawn from the deck’s secure design principles. Tap a card to see which cases turn on it.",
+   "ladderTitle": "Each part moves the control closer to the keyboard",
+   "ladderPrefix": "The control ",
+   "ladderNote": "The closing puts the control in your hands",
+   "pathTitle": "The case files, domain by domain",
+   "chapter": "Case",
+   "checkpoint": "Domain {p} checkpoint",
+   "intro": "Introduction",
+   "closing": "Closing",
+   "coverCap": "{N} people or teams in this chain. {K} owed due care.",
+   "coverOne": "One of them",
+   "coverMany": "{K} of them",
+   "finishOne": "The control belonged at link {links}.",
+   "finishMany": "Links {links} were each a place a control could have held.",
+   "finishAfterOne": " After that, the rest need not have happened.",
+   "finishAfterMany": " After the last of them, the rest need not have happened.",
+   "finishNoAfter": "The control belonged at {linkword} {links}.",
+   "afterNote": "With a control here, none of what follows needed to happen.",
+   "stopPrompt": "Where should the control have been?",
+   "stopHint": "Tap the link in the chain where a check, a verification or a block could have held.",
+   "stopHintMany": " There are {n} to find.",
+   "stopAria": "Place the control at: ",
+   "toolkitPrompt": "Which of the eight questions fits this case best?",
+   "recapNone": "{N} cases, {n} controls. This checkpoint brings them together.",
+   "recapSome": "You have placed the control in {k} of these {n} cases.",
+   "recapAll": "You placed the control in every case of this domain. Now try the exam-style scenarios.",
+   "recapFinish": "Every case in this domain, its control placed. ",
+   "recapNext": "Next: Domain {np}, {next}.",
+   "recapLast": "The closing shows the version where someone checked.",
+   "stampFound": "CONTROL PLACED",
+   "stampCheckpoint": "CONTROLS HELD",
+   "stampClosing": "CAUGHT IN TIME",
+   "stampPlain": "CASE CLOSED",
+   "closed": "File closed",
+   "checkpointDone": "Domain checkpoint complete",
+   "takeaway": "Take this to work",
+   "trained": "Questions trained",
+   "wrote": "What you wrote",
+   "lastSit": "One last thing to think about",
+   "elsewhere": "Elsewhere in the casebook",
+   "sources": "The record",
+   "sit": "Think about this",
+   "reflect": "Write before you read on",
+   "firstTry": "first-try calls",
+   "streakDay": "day in a row",
+   "streakDays": "days in a row",
+   "reset": "Reset my progress",
+   "resetConfirm": "Tap again to erase all progress",
+   "nextCase": "Next case file",
+   "nextCheckpoint": "Next: domain checkpoint",
+   "nextClosing": "Next: the closing",
+   "backToCourse": "Back to the casebook",
+   "closeCase": "Close the file",
+   "cpMark": "EXAM"
+  },
+  "theme": {},
+  "questionHints": [
+   "Fails when nobody was named or accountable for the system, the data or the decision.",
+   "Fails when risks were not investigated before taking on a company, a vendor or a platform.",
+   "Fails when an account, role or permission existed beyond what the job needed.",
+   "Fails when one person could make a critical change with no second person involved.",
+   "Fails when the default setting, or the state after a failure, was open instead of closed.",
+   "Fails when there was only one layer, and nothing behind it when it gave way.",
+   "Fails when something trusted (a person, an update, an alert, a test, a deployment) was not checked.",
+   "Fails when each side assumed the other was responsible for a control."
+  ]
+ },
+ "order": [
+  "ch04",
+  "ch05",
+  "cp2",
+  "ch15"
+ ],
+ "sources": {
+  "cp2": [
+   "cp2.md",
+   "ch04.md",
+   "ch05.md"
+  ]
+ },
+ "fonts": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap"
+}

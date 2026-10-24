@@ -1,0 +1,40 @@
+{
+ "title": "Who Owed Due Care?",
+ "domain": "cyber",
+ "kind": "concept-only",
+ "audience": ["everyone", "specialist"],
+ "exemplar": "ch15",
+ "framework": [
+  {"n": 1, "q": "Who owns this, and who answers for it?", "hint": "Q1 is who is accountable; Q4 is whether one person could act alone.", "cites": ["deck slides 11, 17"]},
+  {"n": 2, "q": "Did we do the research before we took it on?", "hint": "Q2 is checks before you take something on; Q7 is checks while it runs.", "cites": ["ch04 Morgan Stanley", "deck slides 15, 18, 51"]},
+  {"n": 3, "q": "Does anyone hold more access than the job needs?", "hint": "Q3 is how much access; Q4 is whether one person can complete the act alone.", "cites": ["deck slide 122"]},
+  {"n": 4, "q": "Can one person do this alone?", "hint": "Q4 is a second person on the same act; Q7 is someone checking after.", "cites": ["ch05 PSNI", "ch15 Knight Capital", "deck slide 122"]},
+  {"n": 5, "q": "Is it locked by default, and does it fail closed?", "hint": "Q5 is the state before anyone acts; Q6 is what stands behind a failed layer.", "cites": ["deck slide 122"]},
+  {"n": 6, "q": "If this layer fails, what stands behind it?", "hint": "Q6 is a second layer; Q5 is the default setting of one layer.", "cites": ["deck slide 121"]},
+  {"n": 7, "q": "Even when we trust it, who verifies?", "hint": "Q7 is checking work that is trusted; Q2 is research before the work starts.", "cites": ["ch05 PSNI", "ch15 Knight Capital", "deck slide 121"]},
+  {"n": 8, "q": "Whose control is this: ours or the provider's?", "hint": "Q8 is who holds the control; Q1 is who answers when it fails.", "cites": ["ch04 Morgan Stanley", "deck slide 121"]}
+ ],
+ "stop": {"means": "Place a control (a check, a verification, a revoked account, a block, a second pair of eyes) on the actor who was placed to apply it.", "ring": "WHO OWED DUE CARE HERE?", "stamps": ["CONTROL PLACED", "CONTROLS HELD", "CAUGHT IN TIME", "CASE CLOSED"]},
+ "ladder": [
+  {"part": 2, "name": "Asset Security", "job": "Holds", "desc": "Data and devices from classification to disposal."},
+  {"part": 7, "name": "Security Operations", "job": "Runs", "desc": "Change, configuration and incident work."}
+ ],
+ "lessons": [
+  {"id": "ch04", "kind": "chapter", "part": 2, "title": "Morgan Stanley: The drives that left on a truck", "case": "Morgan Stanley data centre decommissioning, 2016", "citation": "OCC consent order, 2020; SEC order, 2022", "concept": "D2 retention and disposal (deck 106, 115)", "device": "The decommissioning work order", "mechanic": "Approves the mover already on contract", "signature": "order", "chain": [{"short": "Decision", "control": false}, {"short": "Vendor choice", "control": true}, {"short": "Mover resells", "control": false}, {"short": "No proof", "control": true}, {"short": "Buyer", "control": false}, {"short": "Reconcile", "control": false}], "questions": [2, 8]},
+  {"id": "ch05", "kind": "chapter", "part": 2, "title": "PSNI: The hidden sheet", "case": "Police Service of Northern Ireland FOI disclosure, 8 August 2023", "citation": "ICO penalty notice, 2024; independent review", "concept": "D2 classification and handling (deck 99, 112)", "device": "The FOI response workbook", "mechanic": "QA-checks the visible sheet and signs off", "signature": "tapfind", "chain": [{"short": "Requester", "control": false}, {"short": "Export", "control": false}, {"short": "Tab removal", "control": true}, {"short": "QA sign-off", "control": true}, {"short": "Upload", "control": false}, {"short": "Officers", "control": false}], "questions": [4, 7]},
+  {"id": "cp2", "kind": "checkpoint", "part": 2, "title": "Checkpoint: Asset Security", "case": "Cases 4 and 5 replayed as exhibits", "citation": "src cp2, ch04, ch05", "concept": "Exam-style retrieval for domain 2", "device": "Two exhibits, then the exam room", "mechanic": "Exam-style FIRST/BEST/MOST scenarios", "signature": "sort", "chain": [], "questions": [2, 4, 7]},
+  {"id": "ch15", "kind": "chapter", "part": 7, "title": "Knight Capital: The eighth server", "case": "Knight Capital deployment, 1 August 2012", "citation": "SEC order, 2013", "concept": "D7 change and configuration management (deck 363, 365)", "device": "The deployment to eight servers", "mechanic": "Signs off without a second technician", "signature": "runaway", "chain": [{"short": "Developers", "control": false}, {"short": "Technician", "control": true}, {"short": "97 emails", "control": true}, {"short": "Rollback", "control": false}], "questions": [4, 7]}
+ ],
+ "exhibits": [
+  {"object": "Regulator orders, review boards", "skin": "filing"},
+  {"object": "Work orders, access reviews, agency forms", "skin": "form"},
+  {"object": "Automated alerts and logs", "skin": "log"},
+  {"object": "Spreadsheets", "skin": "sheet"},
+  {"object": "Emails", "skin": "email"}
+ ],
+ "personas": [
+  {"name": "Priya", "role": "Network engineer, 6 years, studying on her phone in 15-minute sessions", "knows": "The vocabulary", "quits": "Padding with no exam value"},
+  {"name": "Marcus", "role": "IT operations manager moving into security governance", "knows": "Operations, little security depth", "quits": "Terms used before they are explained"},
+  {"name": "Ana", "role": "Strong technically; English is her second language", "knows": "The technology", "quits": "Idioms, long sentences, ambiguous instructions"}
+ ]
+}

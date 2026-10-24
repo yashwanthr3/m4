@@ -1,0 +1,112 @@
+{
+ "config": {
+  "id": "wcc",
+  "title": "Who Could Have Checked?",
+  "heroHTML": "Who could have <em>checked?</em>",
+  "mast": "Who could have checked?",
+  "ring": "WHO COULD HAVE CHECKED?",
+  "sub": "Security failures, replayed so you make the calls. Every case ends at the same question: where was the check, and who could have made it?",
+  "footer": "Smoke-test course for the Trust Course Kit. The case is fictional.",
+  "questions": [
+   "Who owns this system?",
+   "Who may change it, and how?",
+   "How would we know it changed?",
+   "Who checks the change, apart from the person who made it?",
+   "Is the safe way also the easy way?"
+  ],
+  "parts": {
+   "0": {
+    "name": "Start here",
+    "job": "",
+    "desc": "",
+    "special": true,
+    "mark": "•"
+   },
+   "1": {
+    "name": "When they ask nicely",
+    "job": "Asks",
+    "desc": "Requests that look routine and are not."
+   },
+   "2": {
+    "name": "When it is already inside",
+    "job": "Moves",
+    "desc": "Access that spreads after the first door opens."
+   }
+  },
+  "t": {
+   "lessonsEyebrow": "An interactive course in {n} lessons",
+   "points": "insight",
+   "pressBegin": "Press to begin",
+   "pressContinue": "Press to continue",
+   "frameworkTitle": "The five checks",
+   "frameworkHint": "Each lesson trains one or more. Tap a card to see where.",
+   "ladderTitle": "Each part lets the attacker further in",
+   "ladderPrefix": "Attacker ",
+   "ladderNote": "The last step puts the check in your hands",
+   "pathTitle": "The case files",
+   "chapter": "Chapter",
+   "checkpoint": "Part {p} checkpoint",
+   "intro": "Introduction",
+   "closing": "Closing",
+   "coverCap": "{N} hands on this case. {K} could have checked.",
+   "coverOne": "One of them",
+   "coverMany": "{K} of them",
+   "finishOne": "The check belonged at link {links}.",
+   "finishMany": "Links {links} were each a place someone could have checked.",
+   "finishAfterOne": " After that, the rest need not have happened.",
+   "finishAfterMany": " After the last of them, the rest need not have happened.",
+   "finishNoAfter": "The check belonged at {linkword} {links}.",
+   "afterNote": "From here on, none of this needed to happen.",
+   "stopPrompt": "Who could have checked?",
+   "stopHint": "Tap the link in the chain where the check belonged.",
+   "stopHintMany": " There are {n} to find.",
+   "stopAria": "Place the check at: ",
+   "toolkitPrompt": "Which of the five checks does this case turn on?",
+   "recapNone": "{N} cases, {n} checks. This checkpoint brings them together.",
+   "recapSome": "You have found the check in {k} of these {n} cases.",
+   "recapAll": "You found the check in all {n} cases of this part.",
+   "recapFinish": "{N} cases, {n} checks, all in your hands now. ",
+   "recapNext": "The next part lets the attacker further in.",
+   "recapLast": "The closing shows the version where someone checked.",
+   "stampFound": "CHECK FOUND",
+   "stampCheckpoint": "CHECKS HELD",
+   "stampClosing": "CAUGHT IN TIME",
+   "stampPlain": "CLOSED",
+   "closed": "Case closed",
+   "checkpointDone": "Checkpoint complete",
+   "takeaway": "Take this with you",
+   "trained": "Questions trained",
+   "wrote": "What you wrote",
+   "lastSit": "One last thing to sit with",
+   "elsewhere": "Elsewhere · the same gap, other places",
+   "sources": "Sources",
+   "sit": "Sit with this",
+   "reflect": "Write before you read on",
+   "firstTry": "first-try calls",
+   "streakDay": "day in a row",
+   "streakDays": "days in a row",
+   "reset": "Reset my progress",
+   "resetConfirm": "Tap again to erase all progress",
+   "nextCase": "Next case",
+   "nextCheckpoint": "Next: checkpoint",
+   "nextClosing": "Next: the closing",
+   "backToCourse": "Back to the course",
+   "closeCase": "Close the case",
+   "qrefButton": "5Q",
+   "qrefTitle": "The five questions"
+  },
+  "theme": {},
+  "questionHints": [
+   "Fails when no single person or team is named as the owner of the system.",
+   "Fails when anyone can change it, or the change route skips approval.",
+   "Fails when a change could happen and no log, alert or review would show it.",
+   "Fails when the person who made the change is the only one who checked it.",
+   "Fails when the secure route takes more effort than the insecure one, so people skip it."
+  ]
+ },
+ "order": [
+  "ch01"
+ ],
+ "sources": {},
+ "fonts": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap"
+}

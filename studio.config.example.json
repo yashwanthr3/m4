@@ -1,0 +1,18 @@
+{
+  "agents": "sdk",
+  "port": 4317,
+  "host": "127.0.0.1",
+  "concurrency": 6,
+  "lessonsPerAgent": 5,
+  "maxLearnerRounds": 3,
+  "plateau": 0.05,
+  "exemplarAttempts": 3,
+  "urlCheck": "block",
+  "publishCommand": null,
+  "models": {
+    "research": "claude-opus-5-5", "design": "claude-opus-5-5", "exemplar": "claude-opus-5-5",
+    "author": "claude-sonnet-5-5", "review": "claude-opus-5-5", "taste": "claude-opus-5-5",
+    "learner": "claude-sonnet-5-5", "fixer": "claude-sonnet-5-5", "factcheck": "claude-opus-5-5", "panel": "claude-opus-5-5"
+  },
+  "effort": { "exemplar": "max", "design": "high", "review": "high", "factcheck": "high" }
+}

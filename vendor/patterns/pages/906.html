@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>906 · How far does it spread?</title>
+<style>:root{--bg:#f6f6f1;--surface:#efefe9;--surface-2:#e9ebe5;--ink:#16181b;--ink-2:#43484e;--muted:#575d63;--line:#c9ccc3;
+--accent:#2450b8;--on-accent:#f6f6f1;--accent-soft:#dfe2da;--good:#1d7448;--good-soft:#d7ecdf;--bad:#b3261b;--bad-soft:#f5dcd8;--warn:#765000;--warn-soft:#f6e9c4;
+--font-body:system-ui,sans-serif;--font-display:Georgia,serif;--font-sign:"Arial Narrow",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.5}
+.pattern{padding:18px 18px 20px;max-width:720px;margin:0 auto}
+.sit{font-family:var(--font-display);font-size:19px;margin:0 0 14px;color:var(--ink)}
+.say{margin:0 0 10px;color:var(--ink-2)}
+.stage{position:relative;min-width:0}
+button{font:inherit;cursor:pointer}
+.act{border:0;border-radius:999px;background:var(--accent);color:var(--on-accent);padding:12px 22px;font-weight:600;min-height:44px}
+.act:disabled{opacity:.5;cursor:default}
+.ghost{border:1.5px solid var(--line);border-radius:999px;background:transparent;color:var(--ink-2);padding:10px 18px;min-height:44px}
+.opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);padding:12px 14px;margin:0 0 8px;min-height:48px}
+.opt:hover,.opt:focus-visible{border-color:var(--accent);outline:none}
+.opt.pick{border-color:var(--accent);background:var(--accent-soft)}
+.cons{margin-top:14px;padding:12px 14px;border-radius:12px;border-left:4px solid var(--line);background:var(--surface)}
+.cons.good{border-color:var(--good);background:var(--good-soft)}
+.cons.bad{border-color:var(--bad);background:var(--bad-soft)}
+.cons.warn{border-color:var(--warn);background:var(--warn-soft)}
+.why{color:var(--ink-2);margin:10px 0 0}
+.remember{margin-top:14px;border:1.5px dashed var(--accent);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;background:var(--bg)}
+.remember b{display:block;font-family:var(--font-sign);letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+.remember .ic{font-size:26px;line-height:1}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* 906 — How far does it spread? */
+.rings906{position:relative;height:220px;display:grid;place-items:center}
+.rings906 span{position:absolute;border-radius:50%;border:2px solid var(--line);pointer-events:none;transition:border-color .3s,background .3s}
+.rings906 span.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.lbl906{text-align:center;font-family:var(--font-sign);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.sl906{width:100%;accent-color:var(--accent);min-height:32px}</style></head>
+<body>
+<section class="pattern" id="p906" data-n="906" data-theme="control" data-gesture="slider" data-mechanic="drag the sharing scope and watch ripples reach more rings of people" data-nearest="" data-differs="">
+<p class="sit">You are sharing a spreadsheet of customer complaints. It has names and phone numbers.</p>
+<div class="stage"><div class="rings906" id="r906" aria-hidden="true"><span style="width:50px;height:50px"></span><span style="width:110px;height:110px"></span><span style="width:160px;height:160px"></span><span style="width:210px;height:210px"></span></div>
+<p class="lbl906" id="t906">Only me</p><input class="sl906" id="s906" type="range" min="0" max="3" value="0" aria-label="Who can open the file">
+<div class="row"><button class="act" id="sh906">Share the file</button></div></div>
+<div class="cons" id="c906" hidden role="status"></div>
+<p class="why" id="w906" hidden>Each wider ring is more people who can copy the data. You cannot pull it back.</p>
+<div class="remember" hidden><span class="ic" aria-hidden="true">🌊</span><div><b>Remember</b>Share personal data with the smallest group that needs it.</div></div>
+<div class="row"><button class="ghost replay" hidden>Try again</button></div>
+</section>
+<script>
+const $=(s,r=document)=>r.querySelector(s);const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches||window.__FAST;
+const wait=ms=>new Promise(r=>setTimeout(r,reduce?0:ms));
+function show(id,html,tone){const e=$(id);e.innerHTML=html;e.hidden=false;if(tone){e.className='cons '+tone;}}
+function remember(){ $('.remember').hidden=false; $('.replay').hidden=false; window.trustGate&&window.trustGate('remember'); }
+function reset(){ $$('.cons,.why,.remember,.replay').forEach(e=>e.hidden=true); }
+/* 906 — How far does it spread? */ (() => { const L=['Only me','My team (6 people)','The whole company (2,000 people)','Anyone with the link'];
+const s=$('#s906');s.oninput=()=>{$('#t906').textContent=L[s.value];$$('#r906 span').forEach((r,i)=>r.classList.toggle('on',i<=+s.value));};s.oninput();
+$('#sh906').onclick=()=>{$('#sh906').disabled=true;s.disabled=true;const v=+s.value;
+ const m=[['warn','<b>Only you can open it.</b> The team that handles complaints still cannot work on it.'],['good','<b>Six people who need it can open it.</b> No one else can.'],['bad','<b>2,000 people can open names and phone numbers.</b> Most of them never needed to.'],['bad','<b>Anyone who gets the link can open it.</b> Links get forwarded.']][v];
+ show('#c906',m[1],m[0]);$('#w906').hidden=false;remember();};
+$('.replay').onclick=()=>{s.disabled=false;s.value=0;s.oninput();$('#sh906').disabled=false;reset();};
+window.__autoplay=async(path)=>{s.value=path==='right'?1:3;s.oninput();$('#sh906').click();}; })();
+</script>
+<script id="trust-adapter">
+/* Theme adapter: do not edit. Receives {type:'trust-theme',vars,theme,only}; reports height and the gate. */
+(function(){
+  var N = Number(document.querySelector('.pattern').dataset.n);
+  window.addEventListener('message', function(ev){
+    var d = ev.data || {};
+    if (d.type !== 'trust-theme') return;
+    var r = document.documentElement;
+    Object.keys(d.vars || {}).forEach(function(k){ if (d.vars[k]) r.style.setProperty(k, d.vars[k]); });
+    r.dataset.scheme = d.theme || 'light';
+    height();
+  });
+  function height(){ try { parent.postMessage({type:'trust-height', h: document.documentElement.scrollHeight, n: N}, '*'); } catch(e){} }
+  if (window.ResizeObserver) new ResizeObserver(height).observe(document.body);
+  window.addEventListener('load', height);
+  window.trustGate = function(event){ try { parent.postMessage({type:'trust-pattern', event: event || 'remember', n: N}, '*'); } catch(e){} };
+})();
+</script>
+</body></html>

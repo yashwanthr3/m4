@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>905 · Does the change match the ticket?</title>
+<style>:root{--bg:#f6f6f1;--surface:#efefe9;--surface-2:#e9ebe5;--ink:#16181b;--ink-2:#43484e;--muted:#575d63;--line:#c9ccc3;
+--accent:#2450b8;--on-accent:#f6f6f1;--accent-soft:#dfe2da;--good:#1d7448;--good-soft:#d7ecdf;--bad:#b3261b;--bad-soft:#f5dcd8;--warn:#765000;--warn-soft:#f6e9c4;
+--font-body:system-ui,sans-serif;--font-display:Georgia,serif;--font-sign:"Arial Narrow",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.5}
+.pattern{padding:18px 18px 20px;max-width:720px;margin:0 auto}
+.sit{font-family:var(--font-display);font-size:19px;margin:0 0 14px;color:var(--ink)}
+.say{margin:0 0 10px;color:var(--ink-2)}
+.stage{position:relative;min-width:0}
+button{font:inherit;cursor:pointer}
+.act{border:0;border-radius:999px;background:var(--accent);color:var(--on-accent);padding:12px 22px;font-weight:600;min-height:44px}
+.act:disabled{opacity:.5;cursor:default}
+.ghost{border:1.5px solid var(--line);border-radius:999px;background:transparent;color:var(--ink-2);padding:10px 18px;min-height:44px}
+.opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);padding:12px 14px;margin:0 0 8px;min-height:48px}
+.opt:hover,.opt:focus-visible{border-color:var(--accent);outline:none}
+.opt.pick{border-color:var(--accent);background:var(--accent-soft)}
+.cons{margin-top:14px;padding:12px 14px;border-radius:12px;border-left:4px solid var(--line);background:var(--surface)}
+.cons.good{border-color:var(--good);background:var(--good-soft)}
+.cons.bad{border-color:var(--bad);background:var(--bad-soft)}
+.cons.warn{border-color:var(--warn);background:var(--warn-soft)}
+.why{color:var(--ink-2);margin:10px 0 0}
+.remember{margin-top:14px;border:1.5px dashed var(--accent);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;background:var(--bg)}
+.remember b{display:block;font-family:var(--font-sign);letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+.remember .ic{font-size:26px;line-height:1}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* 905 — Does the change match the ticket? */
+.two905{display:grid;grid-template-columns:1fr 1fr;gap:12px}.two905>div{min-width:0;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface)}
+.two905 h4{margin:0 0 6px;font-family:var(--font-sign);letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+.ln905{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);padding:9px 4px;min-height:44px}
+.ln905:hover,.ln905:focus-visible{background:var(--accent-soft);outline:none}.ln905.hit{background:var(--good-soft)}.ln905.miss{background:var(--bad-soft)}
+@media (max-width:560px){.two905{grid-template-columns:1fr}}</style></head>
+<body>
+<section class="pattern" id="p905" data-n="905" data-theme="casebook" data-gesture="tap-choose" data-mechanic="tap the line in the deployed change that the approved ticket never mentioned" data-nearest="" data-differs="">
+<p class="sit">A change was approved on Monday. On Friday you read what was actually deployed.</p>
+<div class="stage"><p class="say">Tap the deployed line that the ticket did not approve.</p><div class="two905">
+<div><h4>Approved ticket</h4><p>Update the login page text.</p><p>Fix the date format on receipts.</p></div>
+<div><h4>Deployed change</h4><button class="ln905">Login page text updated</button><button class="ln905" data-hit="1">Admin role added to service account</button><button class="ln905">Receipt date format fixed</button></div></div></div>
+<div class="cons" id="c905" hidden role="status"></div>
+<p class="why" id="w905" hidden>Approval covers what was written down. Anything extra was never approved.</p>
+<div class="remember" hidden><span class="ic" aria-hidden="true">🧾</span><div><b>Remember</b>Compare what was deployed with what was approved, line by line.</div></div>
+<div class="row"><button class="ghost replay" hidden>Try again</button></div>
+</section>
+<script>
+const $=(s,r=document)=>r.querySelector(s);const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches||window.__FAST;
+const wait=ms=>new Promise(r=>setTimeout(r,reduce?0:ms));
+function show(id,html,tone){const e=$(id);e.innerHTML=html;e.hidden=false;if(tone){e.className='cons '+tone;}}
+function remember(){ $('.remember').hidden=false; $('.replay').hidden=false; window.trustGate&&window.trustGate('remember'); }
+function reset(){ $$('.cons,.why,.remember,.replay').forEach(e=>e.hidden=true); }
+/* 905 — Does the change match the ticket? */ (() => { let tries=0,ok=false;$$('.ln905').forEach(b=>b.onclick=()=>{if(ok)return;tries++;if(b.dataset.hit){ok=true;b.classList.add('hit');
+ show('#c905',tries===1?'<b>Found on the first look.</b> A new admin role was never in the ticket, so no one approved it.':'<b>Found it.</b> The text and date lines match the ticket. The admin role does not.',tries===1?'good':'warn');$('#w905').hidden=false;remember();}
+ else{b.classList.add('miss');}});
+$('.replay').onclick=()=>{tries=0;ok=false;$$('.ln905').forEach(b=>b.classList.remove('hit','miss'));reset();};
+window.__autoplay=async(path)=>{if(path==='wrong')$$('.ln905')[0].click();$('.ln905[data-hit]').click();}; })();
+</script>
+<script id="trust-adapter">
+/* Theme adapter: do not edit. Receives {type:'trust-theme',vars,theme,only}; reports height and the gate. */
+(function(){
+  var N = Number(document.querySelector('.pattern').dataset.n);
+  window.addEventListener('message', function(ev){
+    var d = ev.data || {};
+    if (d.type !== 'trust-theme') return;
+    var r = document.documentElement;
+    Object.keys(d.vars || {}).forEach(function(k){ if (d.vars[k]) r.style.setProperty(k, d.vars[k]); });
+    r.dataset.scheme = d.theme || 'light';
+    height();
+  });
+  function height(){ try { parent.postMessage({type:'trust-height', h: document.documentElement.scrollHeight, n: N}, '*'); } catch(e){} }
+  if (window.ResizeObserver) new ResizeObserver(height).observe(document.body);
+  window.addEventListener('load', height);
+  window.trustGate = function(event){ try { parent.postMessage({type:'trust-pattern', event: event || 'remember', n: N}, '*'); } catch(e){} };
+})();
+</script>
+</body></html>

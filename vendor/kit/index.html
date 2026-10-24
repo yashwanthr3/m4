@@ -1,0 +1,77 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Trust Course Kit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Libre+Franklin:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+:root{--bg:#e9ebe5;--card:#f6f6f1;--ink:#16181b;--ink2:#43484e;--ink3:#575d63;--rule:#c9ccc3;--stop:#cf2418;--safety:#f3c300;
+--display:"Newsreader",Georgia,serif;--body:"Libre Franklin","Segoe UI",Helvetica,Arial,sans-serif;--sign:"Barlow Condensed","Arial Narrow",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111315;--card:#1a1d20;--ink:#ebece8;--ink2:#b9bdbf;--ink3:#979da2;--rule:#2e3338;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111315;--card:#1a1d20;--ink:#ebece8;--ink2:#b9bdbf;--ink3:#979da2;--rule:#2e3338;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;margin:0;padding-inline:16px;padding-block:40px 64px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:34px}
+.eb{font-family:var(--sign);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:14px;color:var(--ink3)}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(40px,8vw,64px);line-height:1;margin:6px 0 0;letter-spacing:-.02em}
+h2{font-family:var(--sign);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:22px;margin:0 0 10px}
+.lede{font-family:var(--display);font-style:italic;font-size:22px;color:var(--ink2);max-width:38ch;margin:14px 0 0}
+.head{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.estop{width:104px;height:104px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#ffd84a,var(--safety) 55%,#a88600);flex:none}
+.estop i{width:58%;height:58%;border-radius:50%;background:radial-gradient(circle at 36% 30%,#ff8172,var(--stop) 46%,#7e120b);box-shadow:0 6px 0 #5c0c07}
+.steps{counter-reset:s;display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:baseline}
+.steps li::before{content:counter(s);font-family:var(--sign);font-weight:700;font-size:26px;line-height:1;color:var(--ink3)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+.tbl{overflow-x:auto}
+td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+td:first-child{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+.card{background:var(--card);border-radius:6px;padding:18px 20px}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:8px}
+.nums b{display:block;font-family:var(--sign);font-size:30px;line-height:1.05}
+.nums span{font-size:14px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:14px}
+p{margin:0 0 10px}
+</style>
+<main class="wrap">
+  <div class="head">
+    <div><div class="eb">Course-building kit · v2</div><h1>Trust Course Kit</h1>
+    <p class="lede">Turn source material on a trust domain into a world-class interactive course, and prove it teaches.</p></div>
+    <div class="estop" aria-hidden="true"><i></i></div>
+  </div>
+  <section class="card">
+    <p>v2 comes from building <i>Who Owed Due Care?</i>: 27 lessons that pair each concept in a CISSP training deck with a real, cited incident. Every number and quotation is traced to a source and re-checked after every edit round.</p>
+    <div class="nums">
+      <div><b>3.96 → 4.20</b><span>simulated-learner experience (L1–L7)</span></div>
+      <div><b>79% → 89%</b><span>steps fully understood</span></div>
+      <div><b>40 → 6</b><span>low-motivation steps</span></div>
+      <div><b>0</b><span>visual collisions (overlap check)</span></div>
+    </div>
+  </section>
+  <section>
+    <h2>How a course gets made</h2>
+    <ol class="steps">
+      <li>Check the source matches the ask. Build the fact base: split a case-rich source, or research one real incident per concept for a concept-only source.</li>
+      <li>Write the design doc: the question framework and the boundary between neighbouring questions, what "stop" means here, the ladder, one device per lesson, three learner personas.</li>
+      <li>Set every phrase in <code>course.json</code> and pass the config check.</li>
+      <li>The lead writes an exemplar; parallel authors write the rest against the spec and briefs.</li>
+      <li>Automated suite: facts, playthrough, taste, visual collisions. Then independent teaching review and a design critic.</li>
+      <li>Simulated learners walk every step and explain it back. Fix what they name.</li>
+      <li>Re-check facts on the changed text after every edit round. Re-measure, then a score-only panel.</li>
+    </ol>
+  </section>
+  <section>
+    <h2>What's inside</h2>
+    <div class="tbl"><table>
+      <tr><td>engine/</td><td>Interaction blocks, real-object skins (now with sheet), the stop chain with collision-free connectors, question boundaries in the 8Q card, teasers, hints.</td></tr>
+      <tr><td>eval/</td><td>Static eval, playthrough, taste checks, overlap check, learner-experience proxies, capture, rubrics for teaching, design and learner experience.</td></tr>
+      <tr><td>briefs/</td><td>Research, source format, author, teaching review, design critic, learner fix, and fact re-check briefs.</td></tr>
+      <tr><td>tools/</td><td>Suite runner, diff for fact re-checks, quote check, learner-round comparison, config check, aggregation, blind pairs.</td></tr>
+      <tr><td>examples/</td><td>Gold exemplar, config templates, a cyber demo, and four lessons from the CISSP build with their fact base.</td></tr>
+      <tr><td>README · CHANGELOG</td><td>Layout, quick start, and what changed in v2.</td></tr>
+    </table></div>
+  </section>
+  <section class="card">
+    <h2>Using it</h2>
+    <p>The <code>trust-course-builder</code> skill fetches these files into a fresh workspace and runs the full method. To fetch by hand, read this artifact's files by path, starting with <code>README.md</code>.</p>
+  </section>
+</main>
+
+</body></html>
